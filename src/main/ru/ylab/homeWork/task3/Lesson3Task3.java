@@ -20,7 +20,7 @@ public class Lesson3Task3 {
         System.out.println(fuzzySearch("cwhee", "cartwheel"));
         System.out.println(fuzzySearch("cartwheel", "cartwheel"));
         System.out.println(fuzzySearch("cwheeel", "cartwheel"));
-        System.out.println(fuzzySearch("lw", "carltwheel"));
+        System.out.println(fuzzySearch("lw", "cartwheel"));
     }
 
     public static boolean fuzzySearch(String firstString, String secondString) {
