@@ -36,33 +36,5 @@ public class Lesson3Task3 {
             lastIndex = index;
         }
         return true;
-//
     }
-//
-//    public static boolean fuzzySearch(String firstString, String secondString) {
-//        if (firstString.length() > secondString.length() || "".equals(firstString) || "".equals(secondString)) return false;
-//        if (firstString.equals(secondString)) return true;
-//
-//
-//        StringBuilder str = new StringBuilder();
-//        char[] charArrayS1 = firstString.toCharArray();
-//        char[] charArrayS2 = secondString.toCharArray();
-//        for (int i = 0; i < charArrayS1.length; i++) {
-//            char first = charArrayS1[i];
-//            for (int j = i; j < charArrayS2.length; j++) {
-//                char second = charArrayS2[j];
-//                charArrayS2[j] = 0;
-//                if(i == 0 && j == (charArrayS2.length - 1)) return false;
-//                if (first == second) {
-//                    str.append(second);
-//                    if (str.toString().equals(firstString)) {
-//                        return true;
-//                    }
-//                    break;
-//                }
-//            }
-//        }
-//        return false;
-//    }
-
 }
