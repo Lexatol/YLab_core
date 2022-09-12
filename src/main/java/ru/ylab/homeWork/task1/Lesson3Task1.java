@@ -48,10 +48,9 @@ private static Person[] RAW_DATA = new Person[]{
         1 - Jack (4)
      */
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Lesson3Task1 {
@@ -70,27 +69,11 @@ public class Lesson3Task1 {
             new Person(8, "Amelia"),
     };
     public static void main(String[] args) {
-        //из массива создаем лист стрима, удаляем дубликаты и сортируем
-        List<Person> personList = Stream.of(RAW_DATA)
+        Stream.of(RAW_DATA)
+                .filter(Objects::nonNull)
                 .distinct()
-                .sorted(Comparator.comparing(Person::getName)).toList();
-
-        //Создаем hashmap, складываем из листа по ключу имя по значению кол-во
-        //Если такой элемент присутствует в мапе, то мы увеличиваем его value на 1, если нет, то присваиваем 1
-        Map<String, Integer> map = new HashMap<>();
-        for (Person person: personList) {
-            if(map.containsKey(person.getName())) {
-                map.put(person.getName(), map.get(person.getName()) + 1);
-            } else {
-                map.put(person.getName(), 1);
-            }
-        }
-
-        //Распечатываем полученный мар
-        for(Map.Entry<String, Integer> list: map.entrySet()) {
-            System.out.println("Key: " + list.getKey());
-            System.out.println("Value: " + list.getValue());
-            System.out.println("------------------------");
-        }
+                .sorted(Comparator.comparing(Person::getId))
+                .collect(Collectors.groupingBy(Person::getName, Collectors.counting()))
+                .forEach((key, value) -> System.out.println("Key: " + key + "\n" + "Value: " + value));
     }
 }
